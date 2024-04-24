@@ -23,7 +23,7 @@ public class RobotContainer {
 	// Replace with CommandPS4Controller or CommandJoystick if needed
 	private final CommandXboxController driverControllerCommands = new CommandXboxController(OperatorConstants.kDriverControllerPort);
 	
-	private final Command TankDrive = drivetrain.TankDrive(driverControllerCommands.getLeftX(), driverControllerCommands.getRightX());
+	private final Command TankDrive = drivetrain.TankDrive(joystickDeadband(-driverControllerCommands.getLeftY()), joystickDeadband(-driverControllerCommands.getRightY()));
 	
 	/** The container for the robot. Contains subsystems, OI devices, and commands. */
 	public RobotContainer() {
@@ -45,5 +45,28 @@ public class RobotContainer {
 	 */
 	public Command getAutonomousCommand() {
 		return null;
+	}
+	
+	/**
+	 * Controller deadband
+	 * 
+	 * @param value
+	 *            analog stick value to process
+	 * @return
+	 *         value if valid, 0 if within deadband
+	 */
+	public double joystickDeadband(double value) {
+		/* Upper deadband */
+		if (value >= OperatorConstants.controllerDeadband) {
+			return value;
+		}
+		
+		/* Lower deadband */
+		if (value <= -OperatorConstants.controllerDeadband) {
+			return value;
+		}
+		
+		/* Outside deadband */
+		return 0;
 	}
 }
