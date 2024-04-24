@@ -20,4 +20,9 @@ public final class Constants {
 		public static final int leftFollowerID = 2;
 		public static final int rightFollowerID = 3;
 	}
+	
+	public static class ShooterConstants {
+		public static final int solenoidForwardChannel = 1;
+		public static final int solenoidReverseChannel = 2;
+	}
 }
