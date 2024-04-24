@@ -12,10 +12,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
- * subsystems, commands, and trigger mappings) should be declared here.
+ * This class is where the bulk of the robot should be declared. Since Command-based is a "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot} periodic methods (other than the scheduler calls). Instead, the structure of the robot (including subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
 	// The robot's subsystems and commands are defined here...
@@ -25,7 +22,7 @@ public class RobotContainer {
 	// Replace with CommandPS4Controller or CommandJoystick if needed
 	private final CommandXboxController driverControllerCommands = new CommandXboxController(OperatorConstants.kDriverControllerPort);
 	
-	private final Command TankDrive = drivetrain.TankDrive(driverControllerCommands.getLeftX(), driverControllerCommands.getRightX());
+	private final Command TankDrive = drivetrain.TankDrive(joystickDeadband(-driverControllerCommands.getLeftY()), joystickDeadband(-driverControllerCommands.getRightY()));
 	
 	/** The container for the robot. Contains subsystems, OI devices, and commands. */
 	public RobotContainer() {
@@ -50,5 +47,28 @@ public class RobotContainer {
 	 */
 	public Command getAutonomousCommand() {
 		return null;
+	}
+	
+	/**
+	 * Controller deadband
+	 * 
+	 * @param value
+	 *            analog stick value to process
+	 * @return
+	 *         value if valid, 0 if within deadband
+	 */
+	public double joystickDeadband(double value) {
+		/* Upper deadband */
+		if (value >= OperatorConstants.controllerDeadband) {
+			return value;
+		}
+		
+		/* Lower deadband */
+		if (value <= -OperatorConstants.controllerDeadband) {
+			return value;
+		}
+		
+		/* Outside deadband */
+		return 0;
 	}
 }
