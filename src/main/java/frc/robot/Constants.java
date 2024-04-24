@@ -15,7 +15,9 @@ public final class Constants {
 	}
 	
 	public static class DrivetrainConstants {
-		public static final int leftMotorID = 0;
-		public static final int rightMotorID = 1;
+		public static final int leftLeaderID = 0;
+		public static final int rightLeaderID = 1;
+		public static final int leftFollowerID = 2;
+		public static final int rightFollowerID = 3;
 	}
 }
