@@ -54,11 +54,28 @@ public class Drivetrain extends SubsystemBase {
 		// This method will be called once per scheduler run
 	}
 	
+	/**
+	 * Set motor speeds
+	 * 
+	 * @param leftPercentage
+	 *            left side speed [-1,1]
+	 * @param rightPercentage
+	 *            right side speed [-1,1]
+	 */
 	public void setMotorSpeeds(double leftPercentage, double rightPercentage) {
 		motorLeftLeader.set(TalonSRXControlMode.PercentOutput, leftPercentage);
 		motorRightLeader.set(TalonSRXControlMode.PercentOutput, rightPercentage);
 	}
 	
+	/**
+	 * Set motor speeds for tank drive
+	 * 
+	 * @param leftPercentage
+	 *            left side speed [-1,1]
+	 * @param rightPercentage
+	 *            right side speed [-1,1]
+	 * @return Command
+	 */
 	public Command TankDrive(double leftPercentage, double rightPercentage) {
 		return Commands.runOnce(() -> {
 			setMotorSpeeds(leftPercentage, rightPercentage);
