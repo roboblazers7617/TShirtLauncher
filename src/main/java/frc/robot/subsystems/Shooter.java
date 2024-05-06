@@ -14,7 +14,7 @@ import frc.robot.Constants.ShooterConstants;
 public class Shooter extends SubsystemBase {
 	// DoubleSolenoid corresponds to a double solenoid.
 	// Solenoid valve for shooting cylinder
-	private final DoubleSolenoid shooterSolenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, ShooterConstants.solenoidForwardChannel, ShooterConstants.solenoidReverseChannel);
+	private final DoubleSolenoid shooterSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, ShooterConstants.solenoidForwardChannel, ShooterConstants.solenoidReverseChannel);
 	
 	/** Creates a new Drivetrain. */
 	public Shooter() {
