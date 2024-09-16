@@ -4,6 +4,9 @@
 
 package frc.robot.commands;
 
+/**
+ * Commands to run autonomous routines.
+ */
 public final class Autos {
 	private Autos() {
 		throw new UnsupportedOperationException("This is a utility class!");

@@ -10,15 +10,39 @@ package frc.robot;
  * It is advised to statically import this class (or one of its inner classes) wherever the constants are needed, to reduce verbosity.
  */
 public final class Constants {
+	/**
+	 * Constants for the operator controls.
+	 */
 	public static class OperatorConstants {
+		/**
+		 * Controller port for the driver controller.
+		 */
 		public static final int kDriverControllerPort = 0;
+		/**
+		 * Joystick deadband for the controller.
+		 */
 		public static final double controllerDeadband = 0.05;
 	}
 	
+	/**
+	 * Constants for the drivetrain.
+	 */
 	public static class DrivetrainConstants {
+		/**
+		 * CAN ID for the left leader motor controller.
+		 */
 		public static final int leftLeaderID = 0;
+		/**
+		 * CAN ID for the right leader motor controller.
+		 */
 		public static final int rightLeaderID = 1;
+		/**
+		 * CAN ID for the left follower motor controller.
+		 */
 		public static final int leftFollowerID = 2;
+		/**
+		 * CAN ID for the right follower motor controller.
+		 */
 		public static final int rightFollowerID = 3;
 	}
 }

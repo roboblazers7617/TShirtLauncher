@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DrivetrainConstants;
 
+/**
+ * Subsystem that controls the drivetrain.
+ */
 public class Drivetrain extends SubsystemBase {
 	// Create drivetrain motors
 	TalonSRX motorLeftLeader = new TalonSRX(DrivetrainConstants.leftLeaderID);
