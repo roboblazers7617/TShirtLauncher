@@ -99,3 +99,12 @@ wpi.java.configureTestTasks(test)
 tasks.withType(JavaCompile) {
     options.compilerArgs.add '-XDstringConcat=inline'
 }
+
+// Build javadoc
+tasks.withType(Javadoc) {
+	options.setLinks([
+		"https://github.wpilib.org/allwpilib/docs/release/java",
+		"https://api.ctr-electronics.com/phoenix/release/java",
+		"https://api.ctr-electronics.com/phoenix6/release/java",
+	])
+}
