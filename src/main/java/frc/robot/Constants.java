@@ -23,7 +23,7 @@ public final class Constants {
 		 */
 		public static final double controllerDeadband = 0.05;
 	}
-	
+
 	/**
 	 * Constants for the drivetrain.
 	 */
@@ -44,5 +44,19 @@ public final class Constants {
 		 * CAN ID for the right follower motor controller.
 		 */
 		public static final int rightFollowerID = 3;
+	}
+
+	/**
+	 * Constants for the LEDs.
+	 */
+	public static class LEDConstants {
+		/**
+		 * PWM pin that the LEDs are connected to. This must be a PWM header, not MXP or DIO.
+		 */
+		public static final int LED_STRIP_PIN = 9;
+		/**
+		 * Length of the LED strip.
+		 */
+		public static final int LED_STRIP_LENGTH = 180;
 	}
 }
