@@ -3,6 +3,13 @@ plugins {
     id "edu.wpi.first.GradleRIO" version "2024.1.1"
 }
 
+// Add the ButtonBox dependency
+repositories {
+	flatDir {
+		dirs "./libs"
+	}
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
@@ -52,6 +59,7 @@ def includeDesktopSupport = true
 dependencies {
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
+	implementation name: 'buttonbox-lib'
 
     roborioDebug wpi.java.deps.wpilibJniDebug(wpi.platforms.roborio)
     roborioDebug wpi.java.vendor.jniDebug(wpi.platforms.roborio)
