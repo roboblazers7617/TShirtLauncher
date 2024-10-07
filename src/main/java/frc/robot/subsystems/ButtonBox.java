@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import io.github.roboblazers7617.buttonbox.ButtonBoxServer;
+import io.github.roboblazers7617.buttonbox.controls.TestControl;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ButtonBox extends SubsystemBase {
@@ -13,5 +14,6 @@ public class ButtonBox extends SubsystemBase {
 	/** Creates a new ButtonBox */
 	public ButtonBox() {
 		buttonBox = new ButtonBoxServer();
+		buttonBox.addControl(new TestControl());
 	}
 }
