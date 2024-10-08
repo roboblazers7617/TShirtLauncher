@@ -114,5 +114,6 @@ tasks.withType(Javadoc) {
 		"https://github.wpilib.org/allwpilib/docs/release/java",
 		"https://api.ctr-electronics.com/phoenix/release/java",
 		"https://api.ctr-electronics.com/phoenix6/release/java",
+		"https://roboblazers7617.github.io/ButtonBoxLib",
 	])
 }
