@@ -18,9 +18,9 @@ public class ButtonBox extends SubsystemBase {
 	public ButtonBox() {
 		buttonBox = new ButtonBoxServer();
 
-		buttonBox.addControl(new TestControl());
+		buttonBox.addControl(new TestControl("Test Control"));
 
-		Button testButton = new Button();
+		Button testButton = new Button("Test Button");
 		testButton.setMode(ButtonMode.TOGGLE_RISING);
 		buttonBox.addControl(testButton);
 	}
