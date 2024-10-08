@@ -179,3 +179,6 @@ ctre_sim/
 networktables.json
 simgui-ds.json
 simgui.json
+
+# Do not ignore external libraries
+!libs/*.jar
