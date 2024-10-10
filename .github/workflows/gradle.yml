@@ -30,8 +30,8 @@ jobs:
           # Artifact name
           name: build-results
           # A file, directory or wildcard pattern that describes what to upload
-          path: ./build
-  
+          path: ./tshirtlauncher/build
+
   simulate:
     needs: build
     runs-on: ubuntu-latest
@@ -55,13 +55,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-results
-          path: build
+          path: tshirtlauncher/build
 
       - name: Initialize Gradle
         run: ./gradlew
 
       - name: Simulate
         run: |
-          ./gradlew simulateJava &
+          ./gradlew :tshirtlauncher:simulateJava &
           sleep 15
           exit $(kill "$!")
