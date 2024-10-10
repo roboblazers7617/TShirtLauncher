@@ -51,6 +51,7 @@ dependencies {
 	implementation group: "us.hebi.quickbuf", name: "quickbuf-runtime", version: wpi.versions.quickbufVersion.get();
 
 	implementation name: 'buttonbox-lib'
+	implementation name: 'buttonbox-bridge-midi'
 }
 
 shadowJar {
