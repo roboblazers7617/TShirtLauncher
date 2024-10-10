@@ -83,7 +83,7 @@ public class ButtonBoxBridge {
 		client.addControl(new TestControlMIDI("Test Control", new MIDIAddress(midiDevice, ShortMessage.CONTROL_CHANGE, 0, 0)));
 		while (true) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(10);
 			} catch (InterruptedException ex) {
 				System.out.println("interrupted");
 				return;
