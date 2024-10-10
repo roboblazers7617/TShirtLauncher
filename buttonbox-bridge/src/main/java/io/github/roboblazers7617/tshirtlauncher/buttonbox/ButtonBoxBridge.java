@@ -24,10 +24,12 @@ import javax.sound.midi.MidiDevice.Info;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
 import javax.sound.midi.Synthesizer;
+import javax.sound.midi.ShortMessage;
 
 import io.github.roboblazers7617.buttonbox.ButtonBoxClient;
 import io.github.roboblazers7617.buttonbox.controls.TestControlMIDI;
 import io.github.roboblazers7617.buttonbox.midi.MIDIDevice;
+import io.github.roboblazers7617.buttonbox.midi.MIDIAddress;
 
 /**
  * Bridge program to connect the TShirtLauncher's ButtonBox hardware to NetworkTables.
@@ -78,7 +80,7 @@ public class ButtonBoxBridge {
 		MIDIDevice midiDevice = new MIDIDevice(rxDevice, txDevice);
 
 		ButtonBoxClient client = new ButtonBoxClient(inst);
-		client.addControl(new TestControlMIDI("Test Control", midiDevice));
+		client.addControl(new TestControlMIDI("Test Control", new MIDIAddress(midiDevice, ShortMessage.CONTROL_CHANGE, 0, 0)));
 		while (true) {
 			try {
 				Thread.sleep(1000);
