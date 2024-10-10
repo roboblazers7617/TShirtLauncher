@@ -24,13 +24,21 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
-      - name: Upload a Build Artifact
+      - name: Upload TShirtLauncher Build Artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           # Artifact name
-          name: build-results
+          name: tshirt-launcher
           # A file, directory or wildcard pattern that describes what to upload
           path: ./tshirtlauncher/build
+
+      - name: Upload ButtonBox Build Artifact
+        uses: actions/upload-artifact@v4.3.1
+        with:
+          # Artifact name
+          name: button-box
+          # A file, directory or wildcard pattern that describes what to upload
+          path: ./buttonbox-bridge/build/distributions
 
   simulate:
     needs: build
@@ -54,7 +62,7 @@ jobs:
       - name: Download build results
         uses: actions/download-artifact@v4
         with:
-          name: build-results
+          name: tshirt-launcher
           path: tshirtlauncher/build
 
       - name: Initialize Gradle
