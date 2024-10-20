@@ -28,6 +28,7 @@ import javax.sound.midi.ShortMessage;
 
 import io.github.roboblazers7617.buttonbox.ButtonBoxClient;
 import io.github.roboblazers7617.buttonbox.controls.TestControlMIDI;
+import io.github.roboblazers7617.buttonbox.controls.ButtonMIDI;
 import io.github.roboblazers7617.buttonbox.midi.MIDIDevice;
 import io.github.roboblazers7617.buttonbox.midi.MIDIAddress;
 
@@ -80,7 +81,10 @@ public class ButtonBoxBridge {
 		MIDIDevice midiDevice = new MIDIDevice(rxDevice, txDevice);
 
 		ButtonBoxClient client = new ButtonBoxClient(inst);
+
 		client.addControl(new TestControlMIDI("Test Control", new MIDIAddress(midiDevice, ShortMessage.CONTROL_CHANGE, 0, 0)));
+		client.addControl(new ButtonMIDI("Test Button", new MIDIAddress(midiDevice, ShortMessage.NOTE_ON, 0, 0)));
+
 		while (true) {
 			try {
 				Thread.sleep(10);
